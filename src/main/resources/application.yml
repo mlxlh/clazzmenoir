@@ -1,0 +1,42 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/class_menoir?useUnicode=yes&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    hikari:
+      # ��С�����ӳ�������Ϊ�˸߷�����ܺ���Ӧ��һ�����ͬ��maximum-pool-size��һ����
+      minimum-idle: 10
+      # ���ӳ������ĵ���������һ��MySQLʵ����������ٸ����ӣ�max_connections�����벻Ҫ��Ĺ��������������δ�����رգ�������һ��ʱ���ڣ�wait_timeout�������ӿ��á�
+      maximum-pool-size: 10
+      # ���ӳص�����
+      pool-name: ecommerce-pool
+      # ֻ�����ݿ�ʱ��ΪTrue
+      read-only: false
+      # ���ӵ�����ʱ�䡣max-lifetime �� idle-timeout �������С�ڣ�wait_timeout�������ӣ���ֹmysql�ر����ӡ�
+      max-lifetime: 600000
+      # Ĭ��Ϊ600000ms��10���ӣ�,���ҽ���minimum-idle С�� maximum-pool-size�������������Чȥ�Ƴ�����idleTimeout ������.
+      idle-timeout: 600000
+      # SQL �ͻ��˴����ӳ��л�ȡ���ӵĳ�ʱʱ�䣬�����ʱ�������׳�SQLException
+      connection-timeout: 30000
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+mybatis:
+  # Mapper XML ·��
+  mapper-locations: classpath:/mybatis/mapper/*.xml, classpath:/mybatis/mapper/extended/*.xml
+fdfs:
+  # ��ȡ��ʱ
+  so-timeout: 1500
+  # ���ӳ�ʱ
+  connect-timeout: 10000
+  # ����ͼ����
+  thumb-image:
+    width: 150
+    height: 150
+  # tracker �б�
+  tracker-list:
+    192.168.101.67:22122
+server:
+  port: 18480
