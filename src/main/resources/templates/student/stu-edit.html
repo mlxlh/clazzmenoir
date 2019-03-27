@@ -78,13 +78,13 @@
                                 </div>
                             </div>-->
                             <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label for="sBirthday">生日: </label>
-                                        <input type="text" class="form-control" id="sBirthday" th:field="*{sBirthday}" name="sBirthday"  readonly>
-                                    </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label for="sBirthday">生日: </label>
+                                    <input type="text" class="form-control" id="sBirthday" th:field="*{sBirthday}" name="sBirthday"  readonly>
                                 </div>
                             </div>
+                        </div>
                            <!-- <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
@@ -106,6 +106,14 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label for="email">联系方式: </label>
+                                        <input type="text" class="form-control" id="email"  th:field="*{email}" name="email">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <!-- /.box-body -->
 
@@ -123,6 +131,13 @@
     <script>
         $(function () {
             $('#sBirthday').datepicker({format: 'yyyy-mm-dd', language: 'zh-CN', autoclose: true});
+            /*function checkPhone(){
+                var phone = document.getElementById('phone').value;
+                if(!(/^1[34578]\d{9}$/.test(phone))){
+                    alert("手机号码有误，请重填");
+                    return false;
+                }
+            }*/
             $('#studentForm').validate({
                 rules: {
                     name:{
@@ -133,7 +148,12 @@
                     },
                     classId: {
                         required: true
+                    },
+                    email: {
+                        required: true,
+                        email: true
                     }
+
                 },
                 highlight: function (element) {
                     $(element).closest('.form-group').addClass('has-error');

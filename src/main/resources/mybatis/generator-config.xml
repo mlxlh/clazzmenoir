@@ -41,13 +41,15 @@
             <property name="constructorBased" value="true"/>
             <generatedKey column="c_id" sqlStatement="select uuid_short()" identity="false"/>
         </table>-->
-        <!--<table schema="class_menoir" tableName="student" domainObjectName="Student">
+        <table schema="class_menoir" tableName="student" domainObjectName="Student">
             <property name="constructorBased" value="true"/>
+            <property name="rootInterface" value="com.suse.hl.clazzmenoir.mapper.extended.StudentMapperExtended"/>
+            <property name="rootClass" value="com.suse.hl.clazzmenoir.common.domain.extended.SudentExtened"/>
             <generatedKey column="id" sqlStatement="select uuid_short()" identity="false"/>
-        </table>-->
-        <table schema="class_menoir" tableName="clazz" domainObjectName="Clazz">
+        </table>
+        <!--<table schema="class_menoir" tableName="clazz" domainObjectName="Clazz">
             <property name="constructorBased" value="true"/>
             <generatedKey column="c_id" sqlStatement="select uuid_short()" identity="false"/>
-        </table>
+        </table>-->
     </context>
 </generatorConfiguration>
